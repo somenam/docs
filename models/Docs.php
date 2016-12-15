@@ -3,9 +3,9 @@
 class Docs extends Model
 {
 
-    public function getList()
+    public function getSize()
     {
-         return $this->db->query("SELECT * FROM `doc`");
+         return $this->db->query("SELECT * FROM `size`");
     }
 
 }

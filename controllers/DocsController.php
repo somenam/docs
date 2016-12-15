@@ -8,8 +8,7 @@ class DocsController
     public function actionIndex()
     {
         $model = new Docs();
-        $docs = $model->getList();
-        
+        $docs = $model->getSize();
         return View::render('docs_list_view', $docs);
     }
 
