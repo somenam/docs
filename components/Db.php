@@ -3,7 +3,7 @@
 class Db
 {
 
-    protected $db = null;
+    public $db = null;
     private $result = null;
 
     // Подключение к базе

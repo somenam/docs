@@ -8,13 +8,15 @@ class DocsController
     public function actionIndex()
     {
         $model = new Docs();
-        $docs = $model->getSize();
+        $docs = $model->getList();
         return View::render('docs_list_view', $docs);
     }
 
     public function actionView()
     {
-        return true;
+        $model = new Docs();
+        $doc = $model->getOne($_GET['id']);
+        return View::render('docs_view', $doc);
     }
 
 }
