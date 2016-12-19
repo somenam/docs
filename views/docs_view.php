@@ -29,7 +29,7 @@
     foreach ($data['rows'] as $key => $row) {
         ?>  
         <div class="row str" style="min-height: 20px;">
-            <div class="rowcol" style="float: left; width: 60px;border: 1px solid black;min-height: 20px;background: gray;"><?= $key ?></div>
+            <div class="rowcol" style="float: left; width: 60px;border: 1px solid black;min-height: 20px;background: gray;"><?= $key+1 ?></div>
             <? foreach($row as $cell):?>
             <div class="cel cel<?= $cell['column'] ?>" data-id="<?= $cell['row'] ?>,<?= $cell['column'] ?>" style="float: left; width: 60px;border: 1px solid black;height: 20px;overflow-x: hidden;overflow-y: hidden;"><?= $cell['value'] ?></div>
             <? endforeach;?>
