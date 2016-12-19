@@ -19,4 +19,12 @@ class DocsController
         return View::render('docs_view', $doc);
     }
 
+    public function actionUpdate()
+    {
+        //return  json_encode($_POST);
+        $model = new Docs();
+        $doc = $model->update();
+        return true;
+    }
+
 }

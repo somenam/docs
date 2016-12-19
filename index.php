@@ -6,10 +6,11 @@ error_reporting(E_ALL);
 define('ROOT',__DIR__);
 
 session_start(); 
+//var_dump($_SESSION);
 //$_SESSION = array();
 //session_destroy();
-if (!isset($_SESSION['counter'])) $_SESSION['counter']=0;
-echo "Вы обновили эту страницу ".$_SESSION['counter']++." раз. ";
+//if (!isset($_SESSION['counter'])) $_SESSION['counter']=0;
+//echo "Вы обновили эту страницу ".$_SESSION['counter']++." раз. ";
 //echo "<br><a href=".$_SERVER['PHP_SELF'].">обновить";
 
 
