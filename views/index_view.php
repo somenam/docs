@@ -1,5 +1,5 @@
 <?if(isset($data['error'])):?>
-<p style="color: red;"><?= $data ?></p>
+<p style="color: red;"><?= $data['error'] ?></p>
 <? endif;?>
 
 <?if(isset($data['info'])):?>

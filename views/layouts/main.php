@@ -10,9 +10,12 @@
     </head>
     <body>
         <div id="main">
-<!--            <div id="header">
-                <h1>Это заголовок</h1>
-            </div>-->
+            <div id="header">
+                <?if(isset($_SESSION['isGuest'])):?>
+                <a href="/site/logout">Выйти</a>
+                <? endif;?>
+                
+            </div>
             <br>
             <div id="conteiner">
                 <?= $content; ?>
@@ -22,6 +25,6 @@
                 Andrew Sosljuk 2016 © Все права защищены
             </footer>
         </div>
-        
+
     </body>
 </html>
