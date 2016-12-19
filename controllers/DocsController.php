@@ -26,5 +26,13 @@ class DocsController
         $doc = $model->update();
         return true;
     }
+    
+    public function actionReload()
+    {
+        $model = new Docs();
+        $doc = $model->getColumns($_POST['id']);
+        
+        return json_encode($doc);
+    }
 
 }

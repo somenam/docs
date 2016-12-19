@@ -8,15 +8,32 @@ class Docs extends Model
         return $this->db->query("SELECT * FROM `docs`");
     }
 
-    public function getOne($id)
+    public function getOne($id, $check = FALSE)
     {
         $table = array();
         $doc = $this->db->query("SELECT * FROM docs WHERE id=".$id);
-        $table['doc'] = $doc[0];
+        if(!$check) {
+            $table['doc'] = $doc[0];
+        }
+        
         for ($i = 0; $i < $doc[0]['rows']; $i++) {
-            $table['rows'][$i] = $this->db->query("SELECT cells.id, cells.row, cells.column, items.value FROM cells JOIN items ON cells.item_id = items.id WHERE row=".$i." AND doc_id=".$doc[0]['id']." ORDER BY `column` ASC");
+
+            $row = $this->db->query("SELECT cells.id, cells.row, cells.column, items.value FROM cells JOIN items ON cells.item_id = items.id WHERE row=".$i." AND doc_id=".$doc[0]['id']." ORDER BY `column` ASC");
+            if ($check) {
+                $table['rows'][$i] = $row;
+            } else {
+                $table['rows'][$i] = $row;
+            }
         }
         return $table;
+    }
+    
+    public function getColumns($id)
+    {
+        $doc = $this->db->query("SELECT * FROM cells JOIN items ON cells.item_id = items.id WHERE doc_id=".$id);
+        
+       
+        return $doc;
     }
 
     public function update()

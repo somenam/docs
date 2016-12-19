@@ -1,4 +1,29 @@
+
+function func() {
+    jQuery.ajax({
+        url: '/docs/reload',
+        type: "POST",
+        dataType: "text",
+        data: {id: $("#docid").val()},
+        success: function (response) {
+            var cols = {};
+            cols = JSON.parse(response);
+            for (var i = 0; i < cols.length; i++) {
+                var cell = cols[i].row + ',' + cols[i].column;
+                $('[data-id = "' + cell + '"]').text(cols[i].value);
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
+
+
+
+
+    var timerId = setInterval(func, 10000);
+
+
 
     $("#form_id").keydown(function (event) {
         if (event.keyCode == 13) {
@@ -21,24 +46,21 @@ $(document).ready(function () {
     });
 
     $("#save").click(function () {
-        //alert('save');
         var col = $('#colcord').val();
         jQuery.ajax({
-            url: '/docs/update', //Адрес подгружаемой страницы
-            type: "POST", //Тип запроса
-            dataType: "text", //Тип данных
+            url: '/docs/update',
+            type: "POST",
+            dataType: "text",
             data: {id: $("#docid").val(), col: col, text: $('#name').val()},
-            success: function (response) { //Если все нормально
+            success: function (response) {
                 $(".cel").removeClass("choce");
-                location.reload();
+                func();
             }
         });
     });
 
 
-    $("#reload").click(function () {
-        location.reload();
-    });
+
 });
 
 
