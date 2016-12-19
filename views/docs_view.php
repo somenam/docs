@@ -13,8 +13,6 @@
 
 <button id="save">Сохранить</button>
 <br><br>
-<button id="reload">Обновить</button>
-<br><br>
 
 
 <div class="tbl">
