@@ -14,7 +14,12 @@
                 <?if(isset($_SESSION['isGuest'])):?>
                 <a href="/site/logout">Выйти</a>
                 <? endif;?>
-                
+                <div style='width:100px;height:20px;background-color:black;position:relative;' 
+                    onmousedown='hook(event)' onmouseout='hook(event)'>
+                    <div style="width: 90%; height: 20px;background: red;margin:0 auto;">
+                        
+                    </div>
+                </div>
             </div>
             <br>
             <div id="conteiner">

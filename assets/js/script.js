@@ -74,3 +74,23 @@ $(document).ready(function () {
 });
 
 
+function hook(e) {
+  var el = e.srcElement || e.target;
+  el.startX = (e.type == 'mousedown') ? 
+    (e.clientX - el.offsetWidth) : 0;
+}
+function move(e) {
+  var el = e.srcElement || e.target;
+  if(el.startX) 
+    el.style.width = e.clientX - el.startX + 'px';
+  (e.preventDefault) ? e.preventDefault() : e.returnValue = false;
+}
+if(!document.attachEvent) {
+  document.attachEvent = function(e, f) {
+    this.addEventListener(e.substr(2), f, false);
+  }
+} 
+document.attachEvent('onmouseup', hook);
+document.attachEvent('onmousemove', move);
+
+
