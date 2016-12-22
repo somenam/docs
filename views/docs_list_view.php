@@ -11,8 +11,8 @@
     <tbody>
         <? foreach($data as $item):?>
       <tr>
-          <td><a href="docs/view?id=<?= $item['id'];?>"><?= $item['name']; ?></a></td>
-        <td><?= $item['descr']; ?></td>
+          <td><a href="docs/view?id=<?= $item['id'];?>">Таблица1</a></td>
+        <td>Описание1</td>
       </tr>
       <? endforeach;?>
     </tbody>
