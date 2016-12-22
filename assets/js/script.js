@@ -16,6 +16,21 @@ function func() {
     });
 }
 
+function save() {
+
+    var col = $('#colcord').val();
+    jQuery.ajax({
+        url: '/docs/update',
+        type: "POST",
+        dataType: "text",
+        data: {id: $("#docid").val(), col: col, text: $('#name').val()},
+        success: function (response) {
+            $(".cel").removeClass("choce");
+            func();
+        }
+    });
+}
+
 $(document).ready(function () {
 
 
@@ -25,10 +40,9 @@ $(document).ready(function () {
 
 
 
-    $("#form_id").keydown(function (event) {
+    $("#name").keydown(function (event) {
         if (event.keyCode == 13) {
-            event.preventDefault();
-            return false;
+            save();
         }
     });
 
@@ -39,6 +53,12 @@ $(document).ready(function () {
         $("#colcord").val($(this).attr('data-id'));
         $(".cel").removeClass("choce");
         $(this).addClass("choce");
+
+
+        $('#name').on('input', function () {
+            var msg = $(this).val();
+            col.text(msg);
+        });
 //        $("#name").keypress(function(eventObject) {
 //            col.text($("#name").val());
 //        //alert('Вы ввели символ с клавиатуры. Его код равен ' + eventObject.which);
@@ -46,17 +66,7 @@ $(document).ready(function () {
     });
 
     $("#save").click(function () {
-        var col = $('#colcord').val();
-        jQuery.ajax({
-            url: '/docs/update',
-            type: "POST",
-            dataType: "text",
-            data: {id: $("#docid").val(), col: col, text: $('#name').val()},
-            success: function (response) {
-                $(".cel").removeClass("choce");
-                func();
-            }
-        });
+        save();
     });
 
 
