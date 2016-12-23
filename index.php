@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 
 //define('ROOT',$_SERVER['DOCUMENT_ROOT']);
 define('ROOT',__DIR__);
-var_dump($_SERVER['SERVER_NAME']);exit;
+define('URL', 'http://'.$_SERVER['SERVER_NAME'].'/index.php/');
+//var_dump(URL);exit;
 
 session_start(); 
 //var_dump($_SESSION);

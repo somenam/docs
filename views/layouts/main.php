@@ -12,7 +12,7 @@
         <div id="main">
             <div id="header">
                 <?if(isset($_SESSION['isGuest'])):?>
-                <a href="/site/logout">Выйти</a>
+                <a href=<?=URL?>"logout">Выйти</a>
                 <? endif;?>
                 
             </div>

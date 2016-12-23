@@ -1,7 +1,8 @@
 
 function func() {
     jQuery.ajax({
-        url: '/docs/reload',
+        //url: '/docs/reload',
+        url: $("#url").text()+'docs/reload',
         type: "POST",
         dataType: "text",
         data: {id: $("#docid").val()},
@@ -48,7 +49,8 @@ $(document).ready(function () {
     $("#save").click(function () {
         var col = $('#colcord').val();
         jQuery.ajax({
-            url: '/docs/update',
+            //url: '/docs/update',
+            url: $("#url").text()+'docs/update',
             type: "POST",
             dataType: "text",
             data: {id: $("#docid").val(), col: col, text: $('#name').val()},
