@@ -3,6 +3,8 @@
 
 <p><?= $data['doc']['descr']?></p>
 
+<div id="url"><?=URL?></div>
+
 
 <form method="post" action="" id="form_id">
     <input type="text" id="name" style="width: 80%" name="name" value="" /><br/>

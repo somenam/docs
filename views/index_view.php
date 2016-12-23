@@ -3,7 +3,7 @@
 <? endif;?>
 
 <?if(isset($data['info'])):?>
-<a href="docs">Документы</a>
+<a href=<?=URL.'docs'?>>Документы</a>
 <?else:?>
 <form action="" method="POST">
     <p><input type="text" name="login" value=""></p>
