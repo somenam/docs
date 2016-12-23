@@ -3,7 +3,7 @@
 
 <p><?= $data['doc']['descr']?></p>
 
-<div id="url"><?=URL?></div>
+<div id="url" style="display: none"><?=URL?></div>
 
 
 <form method="post" action="" id="form_id">
