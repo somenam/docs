@@ -15,7 +15,7 @@ class SiteController
         if (isset($_POST['login']) && isset($_POST['password'])) {
             if ($_POST['login'] == 'admin' && $_POST['password'] == 'admin') {
                 $_SESSION['isGuest'] = false;
-                header('Location: http://'.URL.'docs', true, 303);
+                header('Location: '.URL.'docs', true, 303);
             } else {
                 $data['error'] = 'Неверный логин или пароль';
                 return View::render('index_view', $data);
